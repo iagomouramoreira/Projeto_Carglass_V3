@@ -1,0 +1,45 @@
+﻿@model IEnumerable<carglass.Models.Empresa>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Empresas</h2>
+
+<p>
+    @Html.ActionLink("Novo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NOME_FANTASIA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CNPJ)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NOME_FANTASIA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CNPJ)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.ID_EMPRESA }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.ID_EMPRESA }) |
+            @Html.ActionLink("Excluir", "Delete", new { id=item.ID_EMPRESA })
+        </td>
+    </tr>
+}
+
+</table>
